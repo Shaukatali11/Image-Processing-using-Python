@@ -1,0 +1,62 @@
+Today Content:- 
+1. Python Libraries for Image Processing.
+2. Basic Image Operations
+3. Mathematical Image Processing.
+
+
+1. Python Libraries for Image Processing:
+OpenCV: A powerful library for image processing.
+PIL (Pillow): A library for opening, manipulating, and saving images.
+NumPy: For numerical operations, which are essential for image manipulation.
+
+    # pip install opencv-python pillow numpy
+
+
+2. Basic Image Operations:
+
+    #Reading and Displaying Images
+    import cv2
+    from PIL import Image
+    
+    # Reading an image using OpenCV
+    image = cv2.imread('example.jpg')
+    
+    # Displaying the image using OpenCV
+    cv2.imshow('Image', image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+    
+    # Reading and displaying an image using Pillow
+    image_pil = Image.open('example.jpg')
+    image_pil.show()
+
+3. Mathematical Image Processing: 
+
+Image Addition: Combining two images by adding their pixel values.
+Image Subtraction: Highlighting differences by subtracting pixel values.
+Image Multiplication: Scaling image intensities.
+Image Blending: Combining images with weighted pixel values.
+
+    import cv2
+    
+    # Read two images
+    image1 = cv2.imread('image1.jpg')
+    image2 = cv2.imread('image2.jpg')
+    
+    # Image Addition
+    added_image = cv2.add(image1, image2)
+    cv2.imshow('Added Image', added_image)
+    cv2.waitKey(0)
+    
+    # Image Subtraction
+    subtracted_image = cv2.subtract(image1, image2)
+    cv2.imshow('Subtracted Image', subtracted_image)
+    cv2.waitKey(0)
+    
+    # Image Blending (Weighted Addition)
+    alpha = 0.5  # Weight for image1
+    beta = 1.0 - alpha  # Weight for image2
+    blended_image = cv2.addWeighted(image1, alpha, image2, beta, 0)
+    cv2.imshow('Blended Image', blended_image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
